@@ -7,10 +7,24 @@ import { ArrowLeft, MapPin, BedDouble, Move, Calendar, Upload, CheckCircle2, Loa
 import { createClient } from '@/utils/supabase/client'
 import { cn } from '@/lib/utils'
 
+interface Maison {
+  id: string
+  titre: string
+  ville: string
+  adresse: string
+  prix: number
+  description: string
+  image_url: string
+  type: string
+  surface: number
+  nombre_chambres: number
+}
+
 export default function PropertyDetailsPage() {
-  const { id } = useParams()
+  const params = useParams()
+  const id = params.id as string
   const router = useRouter()
-  const [property, setProperty] = useState<any>(null)
+  const [property, setProperty] = useState<Maison | null>(null)
   const [loading, setLoading] = useState(true)
   const [showForm, setShowForm] = useState(false)
   const [submitting, setSubmitting] = useState(false)

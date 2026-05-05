@@ -8,8 +8,19 @@ import { Loader2, Sparkles, Filter, Inbox } from 'lucide-react'
 import { createClient } from '@/utils/supabase/client'
 import { cn } from '@/lib/utils'
 
+interface Visit {
+  id: string
+  date_visite: string
+  statut: 'en_attente' | 'acceptee' | 'refusee'
+  maisons: {
+    titre: string
+    adresse: string
+    image_url: string
+  }
+}
+
 export default function VisitsPage() {
-  const [visits, setVisits] = useState<any[]>([])
+  const [visits, setVisits] = useState<Visit[]>([])
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState<'A venir' | 'Passées'>('A venir')
   const supabase = createClient()

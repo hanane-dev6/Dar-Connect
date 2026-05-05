@@ -7,8 +7,21 @@ import PropertyCard from '@/components/PropertyCard'
 import { Search, SlidersHorizontal, Loader2, Calendar, MessageSquare, ChevronDown, Sparkles, Building2, Bell } from 'lucide-react'
 import { createClient } from '@/utils/supabase/client'
 
+interface Maison {
+  id: string
+  titre: string
+  ville: string
+  adresse: string
+  prix: number
+  description: string
+  image_url: string
+  type: string
+  surface: number
+  nombre_chambres: number
+}
+
 export default function HomePage() {
-  const [houses, setHouses] = useState<any[]>([])
+  const [houses, setHouses] = useState<Maison[]>([])
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
   const [userName, setUserName] = useState('Yacine')

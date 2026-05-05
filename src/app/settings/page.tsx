@@ -59,7 +59,10 @@ export default function SettingsPage() {
         })
         .eq('id', user.id)
 
-      if (!error) {
+      if (error) {
+        console.error('Erreur de sauvegarde:', error)
+        alert('Erreur lors de la sauvegarde : ' + error.message)
+      } else {
         setSuccess(true)
         setTimeout(() => setSuccess(false), 3000)
       }
