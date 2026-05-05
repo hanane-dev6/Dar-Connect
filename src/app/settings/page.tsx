@@ -6,8 +6,16 @@ import { ChevronLeft, User, Mail, Phone, Globe, Save, Loader2, Check } from 'luc
 import { createClient } from '@/utils/supabase/client'
 import BottomNav from '@/components/BottomNav'
 
+interface Locataire {
+  id: string
+  nom: string
+  prenom: string
+  email: string
+  telephone: string
+}
+
 export default function SettingsPage() {
-  const [profile, setProfile] = useState<any>(null)
+  const [profile, setProfile] = useState<Locataire | null>(null)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [success, setSuccess] = useState(false)

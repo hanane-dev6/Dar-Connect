@@ -7,8 +7,16 @@ import BottomNav from '@/components/BottomNav'
 import { User, Mail, Phone, LogOut, Loader2, ShieldCheck, ChevronRight, Settings, Sparkles, ClipboardList, Heart, HelpCircle, Info, MessageSquare } from 'lucide-react'
 import { createClient } from '@/utils/supabase/client'
 
+interface Locataire {
+  id: string
+  nom: string
+  prenom: string
+  email: string
+  telephone: string
+}
+
 export default function ProfilePage() {
-  const [profile, setProfile] = useState<any>(null)
+  const [profile, setProfile] = useState<Locataire | null>(null)
   const [loading, setLoading] = useState(true)
   const router = useRouter()
   const supabase = createClient()
