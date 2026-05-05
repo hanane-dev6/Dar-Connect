@@ -43,13 +43,11 @@ export default function PropertyCard({
       <div className="bg-[#0a0d0c] rounded-[16px] overflow-hidden border border-white/5 transition-all duration-300 hover:border-primary/20 group-active:scale-[0.98]">
         {/* Image Section */}
         <div className="relative h-48 w-full overflow-hidden bg-slate-900">
-          <img
+          <Image
             src={imageUrl || 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800'}
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800'
-            }}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
           
           {/* Badge */}

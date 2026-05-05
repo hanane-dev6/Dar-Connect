@@ -108,9 +108,9 @@ export default function VisitsPage() {
                 <VisitCard
                   key={visit.id}
                   id={visit.id}
-                  propertyTitle={visit.maisons.titre}
-                  propertyLocation={visit.maisons.adresse}
-                  propertyImage={visit.maisons.image_url}
+                  propertyTitle={visit.maisons?.titre || 'Bien non disponible'}
+                  propertyLocation={visit.maisons?.adresse || '-'}
+                  propertyImage={visit.maisons?.image_url || ''}
                   visitDate={visit.date_visite}
                   status={visit.statut}
                 />
